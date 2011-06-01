@@ -1,8 +1,9 @@
 /**
  * Add and delete 'rows' to any container element.
  *
- * @author			Stephen Lewis
- * @package			Crumbly
+ * @author		Stephen Lewis (http://github.com/experience/)
+ * @copyright   Experience Internet
+ * @version     1.0.0
  */
 
 (function($) {
@@ -141,4 +142,3 @@
 
 
 /* End of file      : jquery.roland.js */
-/* File location    : themes/third_party/crumbly/js/libs/jquery.roland.js */
