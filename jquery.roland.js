@@ -16,9 +16,6 @@
             updateIndexes($container, opts);
             updateNav($container, opts);
 
-            // Compile a list of all the available options for the 'templates' DD.
-            var templateOptions = initAvailableOptionsList($container.find('select[name^="templates[0]"]'));
-
             // Adds a row.
             $container.find('.' + opts.addRowClass).bind('click', function(e) {
                 e.preventDefault();
