@@ -12,7 +12,7 @@
         var opts = $.extend({}, $.fn.roland.defaults, options);
 
         return this.each(function() {
-            $container = $(this);
+            var $container = $(this);
             updateIndexes($container, opts);
             updateNav($container, opts);
 
@@ -20,14 +20,15 @@
             $container.find('.' + opts.addRowClass).bind('click', function(e) {
                 e.preventDefault();
 
-                $link       = $(this);
-                $parentRow  = $link.closest('.' + opts.rowClass);
-                $lastRow    = $container.find('.' + opts.rowClass + ':last');
-                $cloneRow   = $lastRow.clone(true);
+                var $link       = $(this);
+                var $parentRow  = $link.closest('.' + opts.rowClass);
+                var $lastRow    = $container.find('.' + opts.rowClass + ':last');
+                var $cloneRow   = $lastRow.clone(true);
+                var eventData   = {};
 
                 // Reset the field values.
                 $cloneRow.find('input').each(function() {
-                    type = $(this).attr('type');
+                    var type = $(this).attr('type');
 
                     switch (type.toLowerCase()) {
                         case 'checkbox':
@@ -74,7 +75,8 @@
             // Removes a row.
             $container.find('.' + opts.removeRowClass).bind('click', function(e) {
                 e.preventDefault();
-                $row = $(this).closest('.' + opts.rowClass);
+
+                var $row = $(this).closest('.' + opts.rowClass);
 
                 // Can't remove the last row.
                 if ($row.siblings().length == 0) {
@@ -106,7 +108,7 @@
     // Initialises the 'available options' list for the specified select field.
     function initAvailableOptionsList($select)
     {
-        options = {};
+        var options = {};
         $select.find('option').each(function() {
             options[$(this).attr('value')] = $(this).text();
         });
@@ -120,7 +122,7 @@
 			regex = /^([a-z_]+)\[(?:[0-9]+)\]\[([a-z_]+)\]$/;
 
 			$(this).find('input, select, textarea').each(function(fieldCount) {
-				fieldName	= $(this).attr('name');
+				var fieldName	= $(this).attr('name');
 				fieldName	= fieldName.replace(regex, '$1[' + rowCount + '][$2]');
 				$(this).attr('name', fieldName);
 			});
@@ -130,8 +132,8 @@
 
     // Updates the navigation buttons.
 	function updateNav($container, opts) {
-		$remove = $container.find('.' + opts.removeRowClass);
-		$rows	= $container.find('.' + opts.rowClass);
+		var $remove = $container.find('.' + opts.removeRowClass);
+		var $rows	= $container.find('.' + opts.rowClass);
         $rows.size() == 1 ? $remove.hide() : $remove.show();
 	};
 
