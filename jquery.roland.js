@@ -3,7 +3,7 @@
  *
  * @author		Stephen Lewis (http://github.com/experience/)
  * @copyright   Experience Internet
- * @version     1.1.0
+ * @version     1.1.1
  */
 
 (function($) {
@@ -104,17 +104,6 @@
     /* ------------------------------------------
      * PRIVATE METHODS
      * -----------------------------------------*/
-
-    // Initialises the 'available options' list for the specified select field.
-    function initAvailableOptionsList($select)
-    {
-        var options = {};
-        $select.find('option').each(function() {
-            options[$(this).attr('value')] = $(this).text();
-        });
-        return options;
-    }
-
 
     // Updates the indexes of any form elements.
 	function updateIndexes($container, opts) {
