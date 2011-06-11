@@ -105,17 +105,6 @@
      * PRIVATE METHODS
      * -----------------------------------------*/
 
-    // Initialises the 'available options' list for the specified select field.
-    function initAvailableOptionsList($select)
-    {
-        var options = {};
-        $select.find('option').each(function() {
-            options[$(this).attr('value')] = $(this).text();
-        });
-        return options;
-    }
-
-
     // Updates the indexes of any form elements.
 	function updateIndexes($container, opts) {
 		$container.find('.' + opts.rowClass).each(function(rowCount) {
