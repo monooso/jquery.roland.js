@@ -3,7 +3,7 @@
  *
  * @author      Stephen Lewis (http://github.com/experience/)
  * @copyright   Experience Internet
- * @version     1.1.2
+ * @version     1.1.3
  */
 
 (function($) {
