@@ -63,15 +63,15 @@
         typeof $parentRow === 'object'
           ? $parentRow.after($cloneRow) : $lastRow.append($cloneRow);
 
-        // Post-add event.
-        if ($link.data('events').postAddRow !== undefined) {
-          eventData = {container : $container, options : opts};
-          $link.triggerHandler('postAddRow', [eventData]);
-        }
-
         // Update everything.
         updateIndexes($container, opts);
         updateNav($container, opts);
+
+        // Post-add event.
+        if ($link.data('events').postAddRow !== undefined) {
+          eventData = {container : $container, options : opts, newRow : $cloneRow};
+          $link.triggerHandler('postAddRow', [eventData]);
+        }
       });
 
 
@@ -117,15 +117,17 @@
         $field = $(this);
 
         if ($field.attr('id')) {
-          $field.attr('id',
-            $field.attr('id').replace(regex, '$1[' + rowCount + '][$2]'));
+          var fieldId = $field.attr('id')
+            .replace(regex, '$1[' + rowCount + ']$2');
+
+          $field.attr('id', fieldId);
         }
 
-        var fieldName = $(this).attr('name');
+        if ($field.attr('name')) {
+          var fieldName = $field.attr('name')
+            .replace(regex, '$1[' + rowCount + ']$2');
 
-        if (fieldName) {
-          fieldName = fieldName.replace(regex, '$1[' + rowCount + '][$2]');
-          $(this).attr('name', fieldName);
+          $field.attr('name', fieldName);
         }
       });
     });
