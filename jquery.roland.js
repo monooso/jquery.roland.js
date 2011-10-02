@@ -45,6 +45,8 @@
           }
         });
 
+        $cloneRow.find('select').val('');
+
         // Pre-add event. Only checks return value from last listener.
         if ($link.data('events').preAddRow !== undefined) {
           eventData = {container : $container, options : opts, newRow : $cloneRow};
