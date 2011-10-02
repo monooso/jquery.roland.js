@@ -3,7 +3,7 @@
  *
  * @author      Stephen Lewis (http://github.com/experience/)
  * @copyright   Experience Internet
- * @version     1.1.2
+ * @version     1.1.3
  */
 
 (function($) {
@@ -44,6 +44,8 @@
               break;
           }
         });
+
+        $cloneRow.find('select').val('');
 
         // Pre-add event. Only checks return value from last listener.
         if ($link.data('events').preAddRow !== undefined) {
