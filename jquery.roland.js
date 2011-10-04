@@ -3,7 +3,7 @@
  *
  * @author      Stephen Lewis (http://github.com/experience/)
  * @copyright   Experience Internet
- * @version     1.1.4
+ * @version     1.1.5
  */
 
 (function($) {
@@ -111,7 +111,7 @@
   // Updates the indexes of any form elements.
   function updateIndexes($container, opts) {
     $container.find('.' + opts.rowClass).each(function(rowCount) {
-      regex = /^([a-z_]+)\[(?:[0-9]+)\]\[([a-z_]+)\]$/;
+      regex = /^([a-z_]+)\[(?:[0-9]+)\](.*)$/;
 
       $(this).find('input, select, textarea').each(function(fieldCount) {
         $field = $(this);
